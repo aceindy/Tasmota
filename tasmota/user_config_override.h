@@ -88,8 +88,12 @@ Examples :
 
 */
 
-
-
-
-
 #endif  // _USER_CONFIG_OVERRIDE_H_
+
+#ifndef USE_SCRIPT
+#define USE_SCRIPT  // adds about 17k flash size, variable ram size
+#endif
+
+#ifdef USE_RULES
+#undef USE_RULES
+#endif 
