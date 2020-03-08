@@ -21,7 +21,7 @@ While fallback or downgrading is common practice it was never supported due to S
 
 ## Supported Core versions
 
-This release will be supported from ESP8266/Arduino library Core version **2.6.1** due to reported security and stability issues on previous Core version.
+This release will be supported from ESP8266/Arduino library Core version **2.6.3 + 372a3ec** due to reported security and stability issues on previous Core version. This will also support gzipped binaries.
 
 Although it might still compile on previous Core versions all support will be removed in the near future.
 
@@ -35,11 +35,11 @@ For initial configuration this release supports Webserver based **WifiManager** 
 
 ## Provided Binary Downloads
 
-The following binary downloads have been compiled with ESP8266/Arduino library core version **2.6.1**.
+The following binary downloads have been compiled with ESP8266/Arduino library core version **2.6.3 + 372a3ec**.
 
-- **tasmota.bin** = The Tasmota version with sensors. **RECOMMENDED RELEASE BINARY**
+- **tasmota.bin** = The Tasmota version with most drivers. **RECOMMENDED RELEASE BINARY**
 - **tasmota-BG.bin** to **tasmota-TW.bin** = The Tasmota version in different languages.
-- **tasmota-lite.bin** = The Lite version without most sensors.
+- **tasmota-lite.bin** = The Lite version without most drivers and sensors.
 - **tasmota-knx.bin** = The Knx version without some features but adds KNX support.
 - **tasmota-sensors.bin** = The Sensors version adds more useful sensors.
 - **tasmota-ir** = The InfraRed Receiver and transmitter version allowing all available protocols provided by library IRremoteESP8266 but without most other features.
@@ -55,13 +55,13 @@ The following binary downloads have been compiled with ESP8266/Arduino library c
 ### Version 8.1.0.10
 
 - Change default my_user_config.h driver and sensor support removing most sensors and adding most drivers
+- Change DHT driver (#7468, #7717)
 - Change Lights: simplified gamma correction and 10 bits internal computation
 - Change commands ``Prefix``, ``Ssid``, ``StateText``, ``NTPServer``, and ``FriendlyName`` displaying all items
 - Change IRremoteESP8266 library updated to v2.7.4
 - Change Zigbee command prefix from ``Zigbee*`` to ``Zb*``
 - Change MQTT message size with additional 200 characters
 - Change display of some date and time messages from "Wed Feb 19 10:45:12 2020" to "2020-02-19T10:45:12"
-- Change switchmode 6 according to issue 7778 (#7831)
 - Fix Sonoff Bridge, Sc, L1, iFan03 and CSE7766 serial interface to forced speed, config and disable logging
 - Fix commands ``Display`` and ``Counter`` from overruling command processing (#7322)
 - Fix ``White`` added to light status (#7142)
@@ -108,8 +108,6 @@ The following binary downloads have been compiled with ESP8266/Arduino library c
 - Add ``ZbZNPReceived``and ``ZbZCLReceived`` being published to MQTT when ``SetOption66 1``
 - Add optional Wifi AccessPoint passphrase define WIFI_AP_PASSPHRASE in my_user_config.h (#7690)
 - Add support for FiF LE-01MR energy meter by saper-2 (#7584)
-- Add new DHT driver. The old driver can still be used using define USE_DHT_OLD (#7468)
-- Add another new DHT driver based on ESPEasy. The old driver can still be used using define USE_DHT_OLD. The previous new driver can be used with define USE_DHT_V2 (#7717)
 - Add initial support for Sensors AHT10 and AHT15 by Martin Wagner (#7596)
 - Add support for Wemos Motor Shield V1 by Denis Sborets (#7764)
 - Add Zigbee enhanced commands decoding, added ``ZbPing``
